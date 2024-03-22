@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문장만들기</title>
+</head>
+<body>
+    <p id="sentence"></p>
+    <script>
+        function makeSentence(){
+            const words1 = ["자존감이 높은", "안경 쓴", "고양이가 좋은", "피곤해 하는"],
+            const words2 = ["키가 큰", "작은 요정", "뺴뺴마른", "의문의", "덩치가 좋은"],
+            const words3 = ["우지", "승관", "디노", "도겸", "원우", "정한", "에스쿱스"]
+        }
+
+        const rand1 = Math.floor(Math.random() * words1.length);
+        const rand2 = Math.floor(Math.random() * words1.length);
+        const rand3 = Math.floor(Math.random() * words1.length);
+        let sentece = `${words1[ran1]} ${words2[ran2]} ${words3[ran3]}`;
+    </script>
+</body>
+</html>
