@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(() => {
+            $(".displaySlide div").slideUp();
+            $(".displaySlide p").on('click', function(e){
+                $(this).next().slideToggle();
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="displaySlide">
+        <p>1. 오늘은 티켓팅 하는 날</p>
+        <div>아아ㅏ악</div>
+    </div>
+    <div class="displaySlide">
+        <p>2. 오금이 저린다</p>
+        <div>이이잉</div>
+    </div>
+    <div class="displaySlide">
+        <p>3. 우리 윤주 알파카 보고와라</p>
+        <p>앙큼 상큼 ㅇ앙</p>
+    </div>
+</body>
+</html>
