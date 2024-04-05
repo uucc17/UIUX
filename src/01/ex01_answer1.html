@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>동물 소리</title>
+    <script>
+/*
+페이지가 완전히 로드되지 않았을 때, JavaScript 코드가 실행된다면 
+아직 DOM 역시 완전하게 생성되지 않았을 것이다. 
+DOM이 생성되지 않았다면 <div id="sounds> 요소 역시 아직 존재하지 않는다.
+따라서, 페이지가 완전히 로드 되기 전에 요소에 접근하거나 변경하려 하면 
+자바스크립트 에러가 발생하거나 여러분이 작성한 코드가 작동하지 않는다.
+
+따라서 페이지가 완전히 로드 된 후에 JavaScript가 실행을 시작하게 하는 것이 의미가 있으며, 
+브라우저가 페이지 로드를 완료한 뒤 함수를 실행하려면 
+
+window.onload 속성에 해당 함수를 할당 한다.
+
+*/
+        window.onload = function(){
+            
+            const animal = "dog";
+            const soundsTag = document.getElementById("sounds");
+            if(animal == "dog"){
+                soundsTag.innerHTML = "멍멍!";
+                // 해당 요소의 HTML값 변경
+            }else if(animal == "cat"){
+                soundsTag.innerHTML = "야옹~";
+            }else if(animal == "duck"){
+                soundsTag.innerHTML = "꽥꽥!";
+            }else{
+                soundsTag.innerHTML = "몰라요";
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="sounds"></div>
+    <a href="javascript:on_animals('dog')">강아지</a>
+    <a href="javascript:on_animals('cat')">고양이</a>
+    <a href="javascript:on_animals('duck')">오리</a>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<head>
+    <title>곡 제시 프로그램</title>
+    <meta charset="utf-8">
+    
+</head>
+<body>
+    <div id="song_list"></div>
+    <input type="button" onclick="search_event()" value="검색"/>
+    <script>
+        const songs = [
+            "나는 아픈 건 딱 질색이니까 - (여자)아이들",
+            "밤양갱 -  비비 (BIBI)",
+            "첫 만남은 계획대로 되지 않아 - TWS (투어스)",
+            "EASY - LE SSERAFIM (르세라핌)",
+            "Love wins all - 아이유"
+        ];
+
+        // 랜덤으로 곡 추천 받기
+        function suggestSong() {
+            let index = Math.floor(Math.random() * songs.length);
+            let suggestion = songs[index];
+            return suggestion;
+        }
+
+        
+        const songListElement = document.getElementById("song_list");
+        songListElement.innerHTML = "";
+        for (let i = 0; i < songs.length; i++) {
+            songListElement.innerHTML += songs[i]+"<br>";
+        }
+        songListElement.innerHTML += "<br>추천 곡 : "+suggestSong();
+
+
+        //곡 검색
+        function searchForSong(word) {
+            word = word.toUpperCase();
+            let song;
+            for (let i = 0; i < songs.length; i++) {
+                song = songs[i].toUpperCase();
+                if (song.indexOf(word) >= 0) {
+                   return song;
+                }
+            }
+            return "없는 곡입니다.";
+        }
+
+
+        function search_event(){
+            let search_data = prompt("검색할 곡의 이름을 입력해주세요");
+            let matchedSong = searchForSong(search_data);
+            alert("검색 결과 : "+matchedSong);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>동물 소리</title>
+    <script>
+        /*
+        화살표 함수나 function 으로 정의 가능하며
+        클릭시 이벤트를 발생해야함으로 아래 on_animals를 선언은 안하고 사용만 하였음으로
+        코드를 이용하여 함수화 한다.
+        */
+       
+        window.onload = function(){
+            on_animals("dog");
+        };
+        
+        const on_animals = (animal)=>{
+            const soundsTag = document.getElementById("sounds");
+            if(animal == "dog"){
+                soundsTag.innerHTML = "멍멍!";
+                // 해당 요소의 HTML값 변경
+            }else if(animal == "cat"){
+                soundsTag.innerHTML = "야옹~";
+            }else if(animal == "duck"){
+                soundsTag.innerHTML = "꽥꽥!";
+            }else{
+                soundsTag.innerHTML = "몰라요";
+            }
+        };
+
+    </script>
+</head>
+<body>
+    <div id="sounds"></div>
+    <a href="javascript:on_animals('dog')">강아지</a>
+    <a href="javascript:on_animals('cat')">고양이</a>
+    <a href="javascript:on_animals('duck')">오리</a>
+</body>
+</html>

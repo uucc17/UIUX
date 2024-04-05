@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form 예제</title>
+    <script src="./jquery-3.7.1.min.js"></script>
+
+    <style>
+        .imgCont{
+            text-align: center;
+        }
+
+        .imgCont img{
+            width: 500px;
+            padding: 3px;
+            position: relative;
+            cursor: pointer;
+            z-index: 999;
+            vertical-align: top;
+        }
+    </style>
+
+    
+</head>
+
+<body>
+    <div class="imgCont" onselect="return file">
+        <img src="./rise.jpg" alt="웅이는 늘 밥을 해줬어" onclick="imgContCopy(this)">
+        <img src="./cat.jpg" alt="배경화면" onclick="imgContCopy(this)">
+    </div>
+    
+    <script>
+        function imgContCopy(imgCont_o){
+          let pos = $(imgCont_o).offset();
+          let num1 = Math.round(Math.random() * 900 - 850);
+          let num2 = Math.round(Math.random() * 900 - 450);
+
+          let move_top = pos.top - num1;
+          let move_left = pos.left - num2;
+
+          $(imgCont_o)
+            .clone()
+            .appendTo(".imgCont")
+            .css({top:pos.top, let:pos.left, position:'absolute'})
+            .animate({top:move_top, left:move_left}, 1000, function(){
+                let img = this;
+                setTimeout(function(){$(img).remove();},3000);
+            });
+        }
+    </script>
+</body>
+
+</html>
