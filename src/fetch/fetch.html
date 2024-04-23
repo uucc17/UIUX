@@ -7,6 +7,8 @@
 </head>
 <body>
     <button onclick="fetch_event()">fetch 동작</button>
+    <br><br>
+    <button onclick="fetch_event2()">fetch 동작2</button>
 
     <script>
         function fetch_event(){
@@ -16,6 +18,16 @@
             .then(res => res.json())
             .then(data => {
                 console.log("11 : ", data);
+            });
+        }
+
+        function fetch_event2(){
+            alert("POST 연결");
+            const url = "http://localhost:3003/";
+            fetch(url,{method:"POST"})
+            .then(res => res.json())
+            .then(data => {
+                console.log("post : ", data);
             });
         }
     </script>

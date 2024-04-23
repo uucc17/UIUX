@@ -15,4 +15,11 @@ app.get("/", (req, res) => {
    res.send(jsonData);
 });
 
+app.post("/", (req, res) => {
+   const jsonData = new Array();
+   jsonData.push({"phone":"samsung"});
+   jsonData.push({"phone" :"iphone"});
+   res.send(jsonData);
+});
+
 app.listen(3003);
