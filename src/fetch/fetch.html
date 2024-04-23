@@ -11,6 +11,12 @@
     <script>
         function fetch_event(){
             alert("연결");
+            const url = "http://localhost:3003/";
+            fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log("11 : ", data);
+            });
         }
     </script>
 </body>
