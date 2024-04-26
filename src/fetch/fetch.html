@@ -9,8 +9,27 @@
     <button onclick="fetch_event()">fetch 동작</button>
     <br><br>
     <button onclick="fetch_event2()">fetch 동작2</button>
+    <br><br>
+    <button onclick="xmlHttp_event()">xmlHttp 동작</button>
 
     <script>
+        function xmlHttp_event(){
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "http://localhost:3003/");
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === XMLHttpRequest.DONE){ // 요청 완료시 콜백 함수 등록,
+                    if(xhr.status == 200){ //성공적으로 데이터를 받아왔을 때 처리
+                        console.log(xhr.responseText);
+                    }else{
+                        // 오류가 발생했을때
+                        console.log("ERROR", xhr.status);
+                    }
+                }
+            }
+            xhr.send(); // 요청 전송
+        }
+
         function fetch_event(){
             alert("연결");
             const url = "http://localhost:3003/";
